@@ -1,0 +1,187 @@
+{
+	"name": "gitpod-desktop",
+	"displayName": "Gitpod",
+	"description": "Gitpod Support",
+	"publisher": "gitpod",
+	"version": "0.0.64",
+	"license": "MIT",
+	"icon": "resources/gitpod.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gitpod-io/gitpod-vscode-desktop"
+	},
+	"bugs": {
+		"url": "https://github.com/gitpod-io/gitpod/issues"
+	},
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"remote development",
+		"remote"
+	],
+	"extensionKind": [
+		"ui"
+	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"activationEvents": [
+		"onCommand:gitpod.syncProvider.add",
+		"onCommand:gitpod.syncProvider.remove",
+		"onCommand:gitpod.exportLogs",
+		"onCommand:gitpod.api.autoTunnel",
+		"onCommand:gitpod.showReleaseNotes",
+		"onCommand:gitpod.installLocalExtensions",
+		"onAuthenticationRequest:gitpod",
+		"onUri",
+		"onStartupFinished"
+	],
+	"contributes": {
+		"authentication": [
+			{
+				"label": "Gitpod",
+				"id": "gitpod"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Gitpod",
+				"properties": {
+					"gitpod.host": {
+						"type": "string",
+						"description": "Gitpod Service URL. Update this if you are using a Gitpod self-hosted installation.",
+						"default": "https://gitpod.io/",
+						"scope": "application"
+					},
+					"gitpod.remote.useLocalApp": {
+						"type": "boolean",
+						"description": "Use the local companion app to connect to a remote workspace.\nWarning: Connecting to a remote workspace using local companion app will be removed in the near future.",
+						"default": true,
+						"scope": "application"
+					}
+				}
+			},
+			{
+				"title": "Settings sync",
+				"properties": {
+					"configurationSync.store": {
+						"type": "object",
+						"description": "Settings Sync Provider configuration.",
+						"scope": "application"
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "gitpod.syncProvider.add",
+				"category": "Settings Sync",
+				"enablement": "!gitpod.addedSyncProvider",
+				"title": "Enable Sign In with Gitpod"
+			},
+			{
+				"command": "gitpod.syncProvider.remove",
+				"category": "Settings Sync",
+				"enablement": "gitpod.addedSyncProvider",
+				"title": "Disable Sign In with Gitpod"
+			},
+			{
+				"command": "gitpod.exportLogs",
+				"category": "Gitpod",
+				"title": "Export all logs"
+			},
+			{
+				"command": "gitpod.showReleaseNotes",
+				"category": "Gitpod",
+				"title": "Show Release Notes"
+			},
+			{
+				"command": "gitpod.installLocalExtensions",
+				"title": "Gitpod: Install Local Extensions...",
+				"enablement": "gitpod.inWorkspace == true"
+			}
+		],
+		"menus": {
+			"statusBar/remoteIndicator": [
+				{
+					"command": "gitpod.installLocalExtensions",
+					"group": "remote_00_gitpod_navigation@01",
+					"when": "gitpod.inWorkspace == true"
+				}
+			]
+		}
+	},
+	"main": "./out/extension.js",
+	"segmentKey": "bUY8IRdJ42KjLOBS9LoIHMYFBD8rSzjU",
+	"configcatKey": "WBLaCPtkjkqKHlHedziE9g/TwAe6YyftEGPnGxVRXd0Ig",
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"package": "npx vsce package --yarn",
+		"lint": "eslint . --ext .ts",
+		"test": "mocha -u tdd"
+	},
+	"devDependencies": {
+		"@types/analytics-node": "^3.1.9",
+		"@types/crypto-js": "4.1.1",
+		"@types/google-protobuf": "^3.7.4",
+		"@types/js-yaml": "^4.0.5",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/semver": "^7.3.10",
+		"@types/ssh2": "^0.5.52",
+		"@types/tmp": "^0.2.1",
+		"@types/uuid": "8.0.0",
+		"@types/vscode": "^1.63.0",
+		"@types/webpack": "^5.28.0",
+		"@types/ws": "^7.4.7",
+		"@types/yazl": "^2.4.2",
+		"@typescript-eslint/eslint-plugin": "^5.19.0",
+		"@typescript-eslint/parser": "^5.19.0",
+		"eslint": "^8.13.0",
+		"eslint-plugin-header": "3.1.1",
+		"eslint-plugin-jsdoc": "^19.1.0",
+		"minimist": "^1.2.6",
+		"mocha": "^10.0.0",
+		"ts-loader": "^9.2.7",
+		"typescript": "^4.6.3",
+		"webpack": "^5.42.0",
+		"webpack-cli": "^4.7.2"
+	},
+	"dependencies": {
+		"@bufbuild/connect-web": "^0.2.1",
+		"@gitpod/gitpod-protocol": "main",
+		"@gitpod/local-app-api-grpcweb": "main",
+		"@gitpod/public-api": "main",
+		"@improbable-eng/grpc-web-node-http-transport": "^0.14.0",
+		"analytics-node": "^6.2.0",
+		"configcat-node": "^8.0.0",
+		"js-yaml": "^4.1.0",
+		"node-fetch-commonjs": "^3.2.4",
+		"pkce-challenge": "^3.0.0",
+		"semver": "^7.3.7",
+		"ssh-config": "^4.1.6",
+		"ssh2": "^1.10.0",
+		"tmp": "^0.2.1",
+		"uuid": "8.1.0",
+		"yazl": "^2.5.1"
+	},
+	"__metadata": {
+		"id": "6fdfb72c-12e3-4a3d-99c7-39840e4f83c2",
+		"publisherId": "b14dd147-c094-42f1-a071-67378bf792a3",
+		"publisherDisplayName": "Gitpod",
+		"targetPlatform": "undefined",
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1667543514326
+	}
+}

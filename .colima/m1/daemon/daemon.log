@@ -1,0 +1,8 @@
+time="2022-11-07T16:56:00-05:00" level=info msg="- - - - - - - - - - - - - - -"
+time="2022-11-07T16:56:00-05:00" level=info msg="daemon started by colima"
+time="2022-11-07T16:56:00-05:00" level=info msg="Run `pkill -F /Users/alexandergoya/.colima/template/daemon/daemon.pid` to kill the daemon"
+time="2022-11-07T16:56:00-05:00" level=info msg="Using search domains: [myfiosgateway.com]"
+time="2022-11-07T16:56:00-05:00" level=info msg="waiting for clients..."
+time="2022-11-07T16:56:01-05:00" level=info msg="new connection from  to /Users/alexandergoya/.colima/template/daemon/gvproxy.sock"
+time="2022-11-08T13:43:44-05:00" level=info msg="terminate signal received"
+time="2022-11-08T13:43:44-05:00" level=fatal msg="context canceled"

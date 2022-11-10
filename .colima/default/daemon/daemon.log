@@ -1,0 +1,6 @@
+time="2022-11-09T17:18:02-05:00" level=info msg="- - - - - - - - - - - - - - -"
+time="2022-11-09T17:18:02-05:00" level=info msg="daemon started by colima"
+time="2022-11-09T17:18:02-05:00" level=info msg="Run `pkill -F /Users/alexandergoya/.colima/default/daemon/daemon.pid` to kill the daemon"
+time="2022-11-09T17:18:02-05:00" level=info msg="Using search domains: [pioneeringevolution.local]"
+time="2022-11-09T17:18:02-05:00" level=info msg="waiting for clients..."
+time="2022-11-09T17:18:02-05:00" level=info msg="new connection from  to /Users/alexandergoya/.colima/default/daemon/gvproxy.sock"

@@ -1,0 +1,20 @@
+Host colima
+  IdentityFile "/Users/alexandergoya/.lima/_config/user"
+  IdentityFile "/Users/alexandergoya/.ssh/id_ed25519"
+  IdentityFile "/Users/alexandergoya/.ssh/id_rsa"
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  NoHostAuthenticationForLocalhost yes
+  GSSAPIAuthentication no
+  PreferredAuthentications publickey
+  Compression no
+  BatchMode yes
+  IdentitiesOnly yes
+  Ciphers "^aes128-gcm@openssh.com,aes256-gcm@openssh.com"
+  User alexandergoya
+  ControlMaster auto
+  ControlPath "/Users/alexandergoya/.lima/colima/ssh.sock"
+  ControlPersist 5m
+  Hostname 127.0.0.1
+  Port 55397
+
