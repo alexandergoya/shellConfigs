@@ -1,0 +1,6 @@
+.tldr
+.aws/credentials
+.config/**
+!.config/starship.toml
+.ecr
+.ssh/*
