@@ -1,12 +1,17 @@
 # Instructions
+1) Install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)`
 
-1) Clone to home directory
+2) Install zsh: `brew install zsh`
 
-2) Add all files to be stowed to this folder.
+3) Clone to home directory
 
-3) remove files matching the same name as any in this folder
+4) change branch as nessisary
 
-4) `stow .`
+5) Add all files to be stowed to this folder.
 
-5) YOU MUST RUN `stow .` ANYTIME you `git pull` or changes will not take effect
+6) remove files matching the same name as any in this folder
+
+7) `stow .`
+
+8) YOU MUST RUN `stow .` ANYTIME you `git pull` or changes will not take effect
 manally add anything from `.config` to the git include
