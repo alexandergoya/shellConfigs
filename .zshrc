@@ -43,16 +43,20 @@ HISTFILESIZE=18000
 # Alias
 
 ## aws
-alias start-stig='aws ec2 start-instances --instance-ids i-074cc5de575737b67 --profile=govcloud'
+# alias startStig='aws ec2 start-instances --instance-ids i-074cc5de575737b67 --profile=govcloud'
+alias startStig='bash $HOME/.startStig '
 ## quickly editing host files
 alias hostsedit='sudo code /etc/hosts'
 alias hostsflush='sudo killall -HUP mDNSResponder; echo DNS Cache Reset'
 
 alias python='python3'
 alias py='python3'
-alias killdocker='docker rm -f $(docker ps -q)'
 ## docker
-alias containerdown='docker rm -f $(docker ps -qa)'
+alias killdocker='docker rm -f $(docker ps -q)'
+alias containerDown='docker rm -f $(docker ps -qa)'
+alias dc='docker compose'
+alias proxyUp='docker compose -f ~/Projects/local-dev-proxy/compose.yml up -d'
+alias proxyDown='docker compose -f ~/Projects/local-dev-proxy/compose.yml down'
 function cheat() {curl https://cheat.sh/$1 ;}
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -82,6 +86,8 @@ export PATH="$(brew --prefix)/bin:$PATH"
 
 # Setup tab-autocompletion for npm commands:
 
+# direnv
+eval "$(direnv hook zsh)"
 
 # complete -C /opt/homebrew/bin/terraform terraform#added by docker-dev/bin/mac_setup.sh
 # PHP 8.1 - for building with extensions:
