@@ -1,0 +1,37 @@
+
+Host bitbucket.org
+	AddKeysToAgent yes
+	# IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-PioneeringEvolution,LLC/sshKeys/AlexanderRhelGov.pub
+	# IdentityFile ~/.ssh/AlexanderRhelGov
+	IdentityFile ~/.ssh/id_rsa
+	# IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+	IdentitiesOnly yes
+Host nobaraLianLi
+	User alexanderg
+	HostName 10.0.0.2
+	# HostName 10.0.0.68
+	IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-Personal/IT/Home_Keys/lubuntuFractalMbp
+	ForwardAgent yes
+Host proxmoxVivo
+	User root
+	# HostName 10.0.0.4
+	HostName proxmox.lan
+	IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-Personal/IT/Home_Keys/lubuntuFractalMbp
+	ForwardAgent yes
+Host proxmoxDocker
+	User alexanderg
+	# HostName 10.0.0.41
+	HostName docker.lan
+	IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-Personal/IT/Home_Keys/lubuntuFractalMbp
+	ForwardAgent yes
+Host proxmoxHA
+	User alexanderg
+	# HostName 10.0.0.42
+	# HostName homeassistant.
+	IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-Personal/IT/Home_Keys/lubuntuFractalMbp
+	ForwardAgent yes
+Host wyoming
+	User alexanderg
+	HostName wyoming.local
+	IdentityFile /Users/alexandergoya/Library/CloudStorage/OneDrive-Personal/IT/Home_Keys/lubuntuFractalMbp
+	# ForwardAgent yes
