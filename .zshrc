@@ -2,7 +2,7 @@
 ssh-add
 source /Users/alexandergoya/Projects/docker-dev/.docker_env
 export PATH=$PATH:~/Projects/docker-dev/bin:~/bin
-
+export PATH=$PATH:~/.composer/vendor/bin
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -44,11 +44,14 @@ HISTFILESIZE=18000
 
 ## aws
 # alias startStig='aws ec2 start-instances --instance-ids i-074cc5de575737b67 --profile=govcloud'
-alias startStig='bash $HOME/.startStig '
+alias startStig='bash $HOME/.startStig.sh '
+alias resetFailock='$(ssh -t $1 sudo faillock --user budgetapp_user --reset)'
 ## quickly editing host files
 alias hostsedit='sudo code /etc/hosts'
 alias hostsflush='sudo killall -HUP mDNSResponder; echo DNS Cache Reset'
-
+## wirguard
+alias vpnUp='wg-quick up agMacbook_wg1'
+alias vpnDown='wg-quick down agMacbook_wg1'
 alias python='python3'
 alias py='python3'
 ## docker
@@ -57,6 +60,9 @@ alias containerDown='docker rm -f $(docker ps -qa)'
 alias dc='docker compose'
 alias proxyUp='docker compose -f ~/Projects/local-dev-proxy/compose.yml up -d'
 alias proxyDown='docker compose -f ~/Projects/local-dev-proxy/compose.yml down'
+## misc
+alias sed=gsed
+
 function cheat() {curl https://cheat.sh/$1 ;}
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -91,7 +97,7 @@ eval "$(direnv hook zsh)"
 
 # complete -C /opt/homebrew/bin/terraform terraform#added by docker-dev/bin/mac_setup.sh
 # PHP 8.1 - for building with extensions:
-export PATH=$(brew --prefix)/homebrew/opt/php@8.1/bin:$PATH
+# export PATH=$(brew --prefix)/homebrew/opt/php@8.1/bin:$PATH
 # docker-dev completion
 export PATH=$PATH:$HOME/bin:$HOME/Projects/docker-dev/bin
 # docker-dev env
@@ -99,6 +105,7 @@ source $HOME/Projects/docker-dev/.docker_env
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 # Created by `pipx` on 2024-04-10 20:28:13
 export PATH="$PATH:/Users/alexandergoya/.local/bin"
 
@@ -109,3 +116,6 @@ eval "$(starship init zsh)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/Users/alexandergoya/.cache/lm-studio/bin"
+export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
